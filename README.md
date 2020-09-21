@@ -1,3 +1,3 @@
-# gliss
+## gliss
 Skrypty dla czytelniczków GLISSANDO
-Kopiuj i wklej
+# Kopiuj i wklej
