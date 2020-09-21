@@ -1,0 +1,49 @@
+d1
+$ whenmod 7 8 (hurry "<2 -2>")
+$ iter 4
+$ whenmod 6 8 (striate (choose [4, 2, -2, 32, 16, -8]))
+$ note "<[4 2] 2> [~ 2] 2 2"
+# s "jungbass:14"
+# legato 1
+# shape 0.9
+
+d2
+$ juxBy 0.12 (|* speed 0.98)
+$ sometimesBy 0.2 (|+ n "<-1 1>")
+$ someCyclesBy 0.3 (|* speed (choose [1.5, 0.5, 0.25, -1, -2, -0.25]))
+$ plyWith "<4!3 <3 2 5>>" (|* speed "<1 1.5>/2")
+$ note ("<<~ 0> 3>*4" |+ "-24 -36")
+# s "casio:1"
+# orbit 1
+# delaytime "t"
+# delay 0.6
+# dfb 0.5
+# crush 4
+# lpf (range 200 5000 $ slow 14 $ saw)
+# lpq (slow 3 $ sine*0.3)
+# hpf 100
+# legato 1
+# gain 0.8
+
+d3
+$ juxBy 0.05 (0.005 <~)
+$ every 4 (brak)
+$ iter 2
+$ s "electro1:6(9,16,<0!3 <2 4>>)"
+|+ n (run 4)
+|* speed "[1, 0.95]"
+|* speed "<0.5!3 <1 2 1.5>>"
+# legato 1
+# squiz 1.3
+# hpf 75
+# hpq (slow 8 $ tri*0.5)
+
+d4
+$ sometimesBy 0.1 (rev)
+$ sometimesBy 0.1 (plyWith "<2 3 4>" (hurry "<2 -1 1.5>"))
+$ every 2 (zoom (0.5, 0.75))
+$ splice 16 "0 1 2 3 4 5 6 7"
+$ s "break:5"
+# shape 0.3
+# leslie 0.8
+# lsize (slow 4 $ sine)

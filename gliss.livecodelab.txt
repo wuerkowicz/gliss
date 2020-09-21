@@ -1,0 +1,22 @@
+bpm 90
+play "dish" + int(random 3%4), 'x----x--'
+play "ciack" + int(frame%12), '--x-'
+if random%4==0
+	play "highHatOpen", '-x-'
+else
+	play "highHatClosed", 'x-x-x-x'
+play "pianoLHChord" + int(random 4%12+4), 'x-xx---'
+play "pianoLDChord" + int(frame%6), '--x-x'
+play "pianoRHChord" + int(time%2), '-x-x'
+play "cosmos", '-x- x---'
+if frame%8>=3
+	play "snare", '--x- x- --x'
+
+ambientLight
+simpleGradient (color frame%100, frame%20, frame),
+(color time%20, 100, 20), color green
+fill green
+animationStyle blur
+frame%1000 times
+	rotate time/frame*10
+	line frame/time/10

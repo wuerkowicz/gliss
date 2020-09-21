@@ -1,0 +1,29 @@
+a = FM({ attack:ms(40), decay:1/8})
+arp = Arp( [-12,0,3], [1/8, 1/12], 'updown', 4)
+arp.target = a
+arp.chord.seq([[-12,0,3,12], [12,7,3,10], [-24, 3, 4, 7, 9]].random(), 1)
+arp.shuffle.seq( null, 16)
+
+E = Euclid
+b = SoundFont( 'kalimba' )
+	.note.seq( [220,660], E( 5,8,1/8 ) )
+b.pan = Mouse.x
+
+c = SoundFont( 'kalimba' )
+	.note.seq( [440,880], E( 3,8,1/16 ) )
+c.pan = -(Mouse.x)
+
+
+
+d = Freesound('row').fx.add( Reverb() )
+d.loops = true
+d.note([Mouse.y, -(Mouse.y)].random() )
+d.amp = .7
+
+e = Group(a, b, c, d)
+
+
+bus1 = Bus().fx.add(Delay(1/12, Mouse.y))
+bus2 = Bus().fx.add(Chorus(1/Mouse.y))
+e.send(bus1,1)
+e.send(bus2,1)
