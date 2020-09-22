@@ -1,7 +1,7 @@
 bpm 90
 play "dish" + int(random 3%4), 'x----x--'
 play "ciack" + int(frame%12), '--x-'
-if random%4==0
+if frame%4==0
 	play "highHatOpen", '-x-'
 else
 	play "highHatClosed", 'x-x-x-x'
